@@ -21,4 +21,4 @@ requires:
   Catalyst: 0
   Net::MCMP: 0.01
   Text::SimpleTable: 0
-version: 0.01
+version: 0.02

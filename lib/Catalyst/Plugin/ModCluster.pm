@@ -8,7 +8,7 @@ use Net::MCMP;
 use Text::SimpleTable;
 use sigtrap handler => \&cleanup, qw/normal-signals/;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 my $mc_conf;
 my @mcmp_objects;
@@ -149,7 +149,7 @@ Catalyst::Plugin::ModCluster - Mod Cluster integration
     use Catalyst qw/ModCluster/;
     
     MyApp->config({
-    	URI => "http://127.0.0.1:6666",
+		URI => "http://127.0.0.1:6666",
 		NodeName => "MyApp1",
 		Host => "127.0.0.1",
 		Port => "3000",
@@ -177,10 +177,7 @@ Official documentation for mod_cluster can be found here: https://www.jboss.org/
 =item * URI
 
 URI/address of your cluster, ex: "http://10.254.1.2:6666"
-you can pass an array of URI's if you have multiple mod_cluster machines, ie:
-	URI => ["http://10.254.1.2:6666", "http://10.254.1.4:6666"]
-	# or
-	URI => "http://10.254.1.2:6666","http://10.254.1.4:6666"
+you can pass an array of URI's if you have multiple mod_cluster servers.
 
 =item * NodeName
 
@@ -206,10 +203,7 @@ otherwise application will fail to start
 
 =item * Context
 
-Array or comma separated list of contexts that you want to register with cluster,
-	Context => ['/myapp', '/foo', '/bar'],
-	# or 
-	Context => "/myapp,/foo,/bar"
+Single context of your application, ex "/myapp", or an array of contexts.
 	
 =item * Alias
 
@@ -222,7 +216,7 @@ if not specified, default one will be used ("CatalystApp")
 =head1 SUPPORT
 
 Please report all bugs via github at
-https://github.com/winfinit/Net-MCMP
+https://github.com/winfinit/Catalyst-Plugin-ModCluster
 
 =head1 AUTHOR
 
